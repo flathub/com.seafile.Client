@@ -45,8 +45,8 @@ modules:
       - --disable-valadoc
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/vala/0.54/vala-0.54.2.tar.xz
-        sha256: 884de745317d4d56e4e8cede993dc8f04d50cfca36cf60d2f2f278c30c2b1311
+        url: https://download.gnome.org/sources/vala/0.54/vala-0.54.4.tar.xz
+        sha256: 6051270a2fc30de023c88562566f2f6043e67beb4da4b799c14cdf12048eb40c
 
   - name: libevent
     sources:
@@ -66,7 +66,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.2-latest.tar.gz
-        sha256: 6ebb4a46c3927f379ae6356a5de0f8f884d23a109530f7cc48ce5fffae5811c7
+        sha256: 1ef04721044702966bb242e9427dad080ae883cf857a598534ffec5360f4ba0d
 
   - name: seafile
     config-opts:
