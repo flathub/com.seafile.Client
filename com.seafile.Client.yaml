@@ -45,8 +45,8 @@ modules:
       - --disable-valadoc
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/vala/0.55/vala-0.55.90.tar.xz
-        sha256: 8d8e3db452e407779e8ac4e3b0a5b1daa5460dce920ef379f7d74a36d30a5c33
+        url: https://download.gnome.org/sources/vala/0.56/vala-0.56.1.tar.xz
+        sha256: c518b81dfdda82d1cdf586b3f9b2323162cb96bd3cb5a2c03650cea025d91fb9
 
   - name: libevent
     sources:
@@ -73,15 +73,15 @@ modules:
       - --with-python_prefix=/app
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile/archive/refs/tags/v8.0.6.tar.gz
-        sha256: 9ca1fc82de1c7e50b4a8a5228fce19c943fb0ae8b66d39c176fd0d97c75c5627
+        url: https://github.com/haiwen/seafile/archive/refs/tags/v8.0.7.tar.gz
+        sha256: 4a6cd4b0c85c4b4c9737cea1392a8210685ff6e818e28a01c34c55440bf9b939
 
   - name: seafile-client
     buildsystem: cmake
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v8.0.6.tar.gz
-        sha256: 167f70d95902d23774b811496cca00ca074fba2aeaae0cadc24b0090064e6d7c
+        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v8.0.7.tar.gz
+        sha256: 66aefaac7b6309b023c502792ca249f7609f0cf7b4c2eb4c5137b08d8f145ac4
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
