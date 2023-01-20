@@ -16,6 +16,7 @@ finish-args:
 cleanup:
   - '*.a'
   - '*.la'
+  - /bin/libwebsockets-test-*
   - /bin/vala*
   - /bin/vapigen*
   - /bin/vapicheck*
@@ -25,6 +26,7 @@ cleanup:
   - /lib/libvala*
   - /share/aclocal
   - /share/devhelp
+  - /share/libwebsockets-test-server
   - /share/man
   - /share/pkgconfig
   - /share/vala*
@@ -67,20 +69,28 @@ modules:
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.3-latest.tar.gz
         sha256: 34e0d1b4ba7a9e4a63d2ce2ff6f3bd06f46c6f9e41d4607dde7c725f28886929
 
+  - name: libwebsockets
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://libwebsockets.org/repo/libwebsockets
+        tag: v4.3.2
+        commit: b0a749c8e7a8294b68581ce4feac0e55045eb00b
+
   - name: seafile
     config-opts:
       - --with-python_prefix=/app
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile/archive/refs/tags/v8.0.9.tar.gz
-        sha256: 000e7a11e6291cf7e6a051434f22089aa361fd0623a1a7ec767efedaa278da3e
+        url: https://github.com/haiwen/seafile/archive/refs/tags/v8.0.10.tar.gz
+        sha256: bcfa6576a272486cf30b7fa2207992b01b071bcc5744f0923a0d924c0257b8a5
 
   - name: seafile-client
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v8.0.9.tar.gz
-        sha256: b55e6892827c6250c908c44d6bbfd96b6e755390b8952f78cb3d7cd5540d9a05
+        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v8.0.10.tar.gz
+        sha256: 9c89c3fb1579b57f47df7ac6a8a1046393929db82982bdd73b5bbfb79ac30e78
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
