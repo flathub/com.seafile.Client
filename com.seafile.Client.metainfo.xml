@@ -24,6 +24,9 @@
   <launchable type="desktop-id">com.seafile.Client.desktop</launchable>
   <content_rating type="oars-1.1"></content_rating>
   <releases>
+    <release version="9.0.1" date="2023-03-21"/>
+    <release version="9.0.0" date="2023-03-03"/>
+    <release version="8.0.10" date="2022-12-26"/>
     <release version="8.0.9" date="2022-10-22"/>
     <release version="8.0.8" date="2022-06-30"/>
     <release version="8.0.7" date="2022-04-25"/>
