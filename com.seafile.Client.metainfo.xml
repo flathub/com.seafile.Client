@@ -4,6 +4,9 @@
   <metadata_license>CC0-1.0</metadata_license>
   <name>Seafile Client</name>
   <summary>Seafile file sync and share desktop client</summary>
+  <developer id="com.seafile">
+    <name>Seafile Ltd.</name>
+  </developer>
   <description>
     <p>Seafile is an open source file syncing and collaboration platform for teams. It comes with Dropbox-like file syncing, but is designed to be better suited to teamwork. You can build a file sharing and syncing service for your team on your servers.</p>
   </description>
