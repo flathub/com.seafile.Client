@@ -19,9 +19,11 @@
   <screenshots>
     <screenshot type="default">
       <image>https://help.seafile.com/syncing_client/imgs/seafile-cloud-file-browser.png</image>
+      <caption>The Seafile main window and the built-in cloud file browser</caption>
     </screenshot>
     <screenshot>
       <image>https://help.seafile.com/syncing_client/imgs/seafile-add-account.png</image>
+      <caption>The Seafile setup window on the page to add an account</caption>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">com.seafile.Client.desktop</launchable>
