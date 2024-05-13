@@ -1,6 +1,6 @@
 app-id: com.seafile.Client
 runtime: org.kde.Platform
-runtime-version: '5.15-22.08'
+runtime-version: '5.15-23.08'
 sdk: org.kde.Sdk
 command: seafile-applet
 finish-args:
@@ -67,30 +67,30 @@ modules:
     sources:
       - type: archive
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.3-latest.tar.gz
-        sha256: 34e0d1b4ba7a9e4a63d2ce2ff6f3bd06f46c6f9e41d4607dde7c725f28886929
+        sha256: 143ada255ea852a58577a833df0462af98376a3fd2886dc43ead621d656c317d
 
   - name: libwebsockets
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://libwebsockets.org/repo/libwebsockets
-        tag: v4.3.2
-        commit: b0a749c8e7a8294b68581ce4feac0e55045eb00b
+        tag: v4.3.3
+        commit: 4415e84c095857629863804e941b9e1c2e9347ef
 
   - name: seafile
     config-opts:
       - --with-python_prefix=/app
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile/archive/refs/tags/v9.0.1.tar.gz
-        sha256: e1ea691d491215b439c01b3b5f1043851bc4232b30f7128f903b39b7c590b123
+        url: https://github.com/haiwen/seafile/archive/refs/tags/v9.0.5.tar.gz
+        sha256: 9a1743784fda646cd7713b5d7eb8a685372ca46c61db1f484037bf5a1f01b7ce
 
   - name: seafile-client
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.1.tar.gz
-        sha256: 69c5880d0ae8e52726b62835f9032a341996033994e6749f5bc274e82641eed0
+        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.5.tar.gz
+        sha256: 4b4c0f70416ea17c32362ec83b45f55e2538f013005958e34af2b909c1926c52
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
