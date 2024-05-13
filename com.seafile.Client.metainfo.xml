@@ -3,7 +3,7 @@
   <id>com.seafile.Client</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Seafile Client</name>
-  <summary>Seafile file sync and share desktop client</summary>
+  <summary>Seafile file sync desktop client</summary>
   <developer id="com.seafile">
     <name>Seafile Ltd.</name>
   </developer>
