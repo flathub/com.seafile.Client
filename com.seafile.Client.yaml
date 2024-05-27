@@ -10,6 +10,7 @@ finish-args:
   - --socket=x11
   - --share=network
   - --device=dri
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --persist=.ccnet
   - --filesystem=home/Seafile:create # Where user libraries are stored by default
   - --talk-name=org.freedesktop.Notifications
@@ -32,7 +33,11 @@ cleanup:
   - /share/man
   - /share/pkgconfig
   - /share/vala*
-  
+
+# consider adding the following cleanup command as recommended from there:
+# https://github.com/flathub/io.qt.qtwebengine.BaseApp
+# cleanup-commands:
+#  - /app/cleanup-BaseApp.sh
 
 rename-desktop-file: seafile.desktop
 rename-icon: seafile
