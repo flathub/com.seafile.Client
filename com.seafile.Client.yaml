@@ -32,6 +32,7 @@ cleanup:
   - /share/man
   - /share/pkgconfig
   - /share/vala*
+  
 
 rename-desktop-file: seafile.desktop
 rename-icon: seafile
