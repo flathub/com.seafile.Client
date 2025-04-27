@@ -1,6 +1,6 @@
 app-id: com.seafile.Client
 runtime: org.kde.Platform
-runtime-version: '5.15-23.08'
+runtime-version: '5.15-24.08'
 sdk: org.kde.Sdk
 command: seafile-applet
 finish-args:
@@ -31,7 +31,7 @@ cleanup:
   - /share/pkgconfig
   - /share/vala*
 
-rename-desktop-file: seafile.desktop
+rename-desktop-file: com.seafile.seafile-applet.desktop
 rename-icon: seafile
 
 modules:
@@ -40,14 +40,16 @@ modules:
       - type: archive
         url: https://download.gnome.org/sources/vala/0.16/vala-0.16.1.tar.xz
         sha256: 8be28ff6347feecb391220ceb4e2209d32b697278e87ed7fc6c9fb1e9345e0d8
+    build-options:
+      cflags: "-Wno-error=incompatible-pointer-types"
 
   - name: vala
     config-opts:
       - --disable-valadoc
     sources:
       - type: archive
-        url: https://download.gnome.org/sources/vala/0.56/vala-0.56.17.tar.xz
-        sha256: 26100c4e4ef0049c619275f140d97cf565883d00c7543c82bcce5a426934ed6a
+        url: https://download.gnome.org/sources/vala/0.56/vala-0.56.18.tar.xz
+        sha256: f2affe7d40ab63db8e7b9ecc3f6bdc9c2fc7e3134c84ff2d795f482fe926a382
 
   - name: libevent
     sources:
@@ -67,30 +69,39 @@ modules:
     sources:
       - type: archive
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.3-latest.tar.gz
-        sha256: 143ada255ea852a58577a833df0462af98376a3fd2886dc43ead621d656c317d
+        sha256: 61674ce451c643c8e96e33ff32874f0f05cf5fe958a26d625486375796406618
 
   - name: libwebsockets
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://libwebsockets.org/repo/libwebsockets
-        tag: v4.3.3
-        commit: 4415e84c095857629863804e941b9e1c2e9347ef
+        tag: v4.3.5
+        commit: ab9df9cfc39de7a49967f18387b6b76310947442
+
+  - name: libargon2
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://github.com/P-H-C/phc-winner-argon2/archive/refs/tags/20190702.tar.gz
+        sha256: daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c
+    build-commands:
+      - make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app LIBRARY_REL=lib install
 
   - name: seafile
     config-opts:
       - --with-python_prefix=/app
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile/archive/refs/tags/v9.0.6.tar.gz
-        sha256: e0a1260ac995ad21a183cf73e647fe18e4fc06045f601ab5abcc4b62d07c2280
+        url: https://github.com/haiwen/seafile/archive/refs/tags/v9.0.13.tar.gz
+        sha256: 21f65c89bb75fe396fc55533f15b55e193361cea673667329c36158831d24d3b
 
   - name: seafile-client
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.6.tar.gz
-        sha256: ca6b795e10f84491f0bbf9fe17ab1ef5d0692581de8f81f64626caa9f4b917cd
+        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.13.tar.gz
+        sha256: 55f7a2febd8e146409dcd20a3d34c5749429c7a4da16337855e62979b82c448d
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
