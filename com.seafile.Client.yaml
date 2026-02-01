@@ -98,18 +98,20 @@ modules:
     config-opts:
       - --with-python_prefix=/app
     sources:
-      - type: archive
-        url: https://github.com/haiwen/seafile/archive/refs/tags/v9.0.13.tar.gz
-        sha256: 21f65c89bb75fe396fc55533f15b55e193361cea673667329c36158831d24d3b
+      - type: git
+        url: https://github.com/haiwen/seafile.git
+        tag: v9.0.13
+        commit: bc71a5876e27a3810f3917fba1493d7487eb3876
 
   - name: seafile-client
     buildsystem: cmake-ninja
     config-opts:
       - -D CMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
-      - type: archive
-        url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.13.tar.gz
-        sha256: 55f7a2febd8e146409dcd20a3d34c5749429c7a4da16337855e62979b82c448d
+      - type: git
+        url: https://github.com/haiwen/seafile-client.git
+        tag: v9.0.13
+        commit: d11832792988ffeb2b514b693e3bcb39512da71e
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
