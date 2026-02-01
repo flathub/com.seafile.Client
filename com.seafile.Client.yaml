@@ -1,13 +1,16 @@
 app-id: com.seafile.Client
 runtime: org.kde.Platform
-runtime-version: '5.15-24.08'
+runtime-version: '6.8'
 sdk: org.kde.Sdk
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.8'
 command: seafile-applet
 finish-args:
   - --share=ipc
   - --socket=x11
   - --share=network
   - --device=dri
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
   - --persist=.ccnet
   - --filesystem=home/Seafile:create # Where user libraries are stored by default
   - --talk-name=org.freedesktop.Notifications
