@@ -76,11 +76,13 @@ modules:
 
   - name: libwebsockets
     buildsystem: cmake-ninja
+    config-opts:
+      - -D LWS_WITHOUT_TESTAPPS=ON
     sources:
       - type: git
         url: https://libwebsockets.org/repo/libwebsockets
-        tag: v4.3.5
-        commit: ab9df9cfc39de7a49967f18387b6b76310947442
+        tag: v4.5.2
+        commit: 85c6f7959fd40d8aaf7a50be3c9b75f08389a01c
 
   - name: libargon2
     buildsystem: simple
