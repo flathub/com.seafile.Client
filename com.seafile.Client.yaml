@@ -102,6 +102,10 @@ modules:
         url: https://github.com/haiwen/seafile.git
         tag: v9.0.13
         commit: bc71a5876e27a3810f3917fba1493d7487eb3876
+        x-checker-data:
+          type: git
+          version-scheme: semantic
+          tag-pattern: "^v(\\d+)$"
 
   - name: seafile-client
     buildsystem: cmake-ninja
@@ -112,6 +116,10 @@ modules:
         url: https://github.com/haiwen/seafile-client.git
         tag: v9.0.13
         commit: d11832792988ffeb2b514b693e3bcb39512da71e
+        x-checker-data:
+          type: git
+          version-scheme: semantic
+          tag-pattern: "^v(\\d+)$"
       - type: file
         path: com.seafile.Client.metainfo.xml
     post-install:
