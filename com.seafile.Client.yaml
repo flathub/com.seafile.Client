@@ -103,6 +103,8 @@ modules:
 
   - name: seafile-client
     buildsystem: cmake-ninja
+    config-opts:
+      - -D CMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
         url: https://github.com/haiwen/seafile-client/archive/refs/tags/v9.0.13.tar.gz
