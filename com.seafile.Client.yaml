@@ -45,7 +45,7 @@ modules:
         url: https://download.gnome.org/sources/vala/0.16/vala-0.16.1.tar.xz
         sha256: 8be28ff6347feecb391220ceb4e2209d32b697278e87ed7fc6c9fb1e9345e0d8
     build-options:
-      cflags: "-Wno-error=incompatible-pointer-types"
+      cflags: -Wno-error=incompatible-pointer-types
 
   - name: vala
     config-opts:
@@ -100,8 +100,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile.git
-        tag: v9.0.13
-        commit: bc71a5876e27a3810f3917fba1493d7487eb3876
+        tag: v9.0.16
+        commit: f0eeb5d9b44903c50ae50e7dbb445b051ca2d916
         x-checker-data:
           type: git
           version-scheme: semantic
@@ -114,8 +114,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile-client.git
-        tag: v9.0.13
-        commit: d11832792988ffeb2b514b693e3bcb39512da71e
+        tag: v9.0.16
+        commit: 98b1a1639877bd87f5770e9c1771c65aef69647f
         x-checker-data:
           type: git
           version-scheme: semantic
