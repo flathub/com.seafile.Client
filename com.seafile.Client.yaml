@@ -100,8 +100,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile.git
-        tag: v9.0.16
-        commit: f0eeb5d9b44903c50ae50e7dbb445b051ca2d916
+        tag: v9.0.17
+        commit: e9ef97e87260a7858ac600196e234c5ea6581418
         x-checker-data:
           type: git
           version-scheme: semantic
@@ -114,8 +114,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile-client.git
-        tag: v9.0.16
-        commit: 98b1a1639877bd87f5770e9c1771c65aef69647f
+        tag: v9.0.17
+        commit: 17c7bc21d6f5f436bd20e62841aec00d163dc4db
         x-checker-data:
           type: git
           version-scheme: semantic
