@@ -5,6 +5,13 @@ sdk: org.kde.Sdk
 base: io.qt.qtwebengine.BaseApp
 base-version: "6.10"
 command: seafile-applet
+rename-desktop-file: com.seafile.seafile-applet.desktop
+rename-icon: seafile
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.vala
+build-options:
+  prepend-path: /usr/lib/sdk/vala/bin/
+  prepend-ld-library-path: /usr/lib/sdk/vala/lib
 finish-args:
   - --share=ipc
   - --socket=wayland
@@ -18,43 +25,12 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=com.canonical.indicator.application
 cleanup:
-  - "*.a"
-  - "*.la"
-  - /bin/libwebsockets-test-*
-  - /bin/vala*
-  - /bin/vapigen*
-  - /bin/vapicheck*
-  - /include
-  - /lib/vala*
-  - /lib/pkgconfig
-  - /lib/libvala*
-  - /share/aclocal
-  - /share/devhelp
-  - /share/libwebsockets-test-server
   - /share/man
-  - /share/pkgconfig
-  - /share/vala*
-
-rename-desktop-file: com.seafile.seafile-applet.desktop
-rename-icon: seafile
-
+  - "*.la"
+  - "*.a"
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 modules:
-  - name: vala-bootstrap
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/vala/0.16/vala-0.16.1.tar.xz
-        sha256: 8be28ff6347feecb391220ceb4e2209d32b697278e87ed7fc6c9fb1e9345e0d8
-    build-options:
-      cflags: -Wno-error=incompatible-pointer-types
-
-  - name: vala
-    config-opts:
-      - --disable-valadoc
-    sources:
-      - type: archive
-        url: https://download.gnome.org/sources/vala/0.56/vala-0.56.18.tar.xz
-        sha256: f2affe7d40ab63db8e7b9ecc3f6bdc9c2fc7e3134c84ff2d795f482fe926a382
-
   - name: libevent
     sources:
       - type: archive
@@ -73,7 +49,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.3-latest.tar.gz
-        sha256: 61674ce451c643c8e96e33ff32874f0f05cf5fe958a26d625486375796406618
+        sha256: 07037abb4bfe2d4c05924ff680178e480ad943f641c98125f74ff162ab2d7fb1
 
   - name: libwebsockets
     buildsystem: cmake-ninja
@@ -87,12 +63,12 @@ modules:
 
   - name: libargon2
     buildsystem: simple
+    build-commands:
+      - make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app LIBRARY_REL=lib install
     sources:
       - type: archive
         url: https://github.com/P-H-C/phc-winner-argon2/archive/refs/tags/20190702.tar.gz
         sha256: daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c
-    build-commands:
-      - make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app LIBRARY_REL=lib install
 
   - name: seafile
     config-opts:
@@ -111,6 +87,8 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -D CMAKE_POLICY_VERSION_MINIMUM=3.5
+    post-install:
+      - install -Dm644 com.seafile.Client.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
     sources:
       - type: git
         url: https://github.com/haiwen/seafile-client.git
@@ -125,5 +103,3 @@ modules:
         path: fix-qt-6.9.diff
       - type: file
         path: com.seafile.Client.metainfo.xml
-    post-install:
-      - install -Dm644 -t $FLATPAK_DEST/share/metainfo com.seafile.Client.metainfo.xml
