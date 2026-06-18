@@ -1,9 +1,9 @@
 app-id: com.seafile.Client
 runtime: org.kde.Platform
-runtime-version: "6.10"
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 base: io.qt.qtwebengine.BaseApp
-base-version: "6.10"
+base-version: '6.10'
 command: seafile-applet
 rename-desktop-file: com.seafile.seafile-applet.desktop
 rename-icon: seafile
@@ -26,8 +26,8 @@ finish-args:
   - --talk-name=com.canonical.indicator.application
 cleanup:
   - /share/man
-  - "*.la"
-  - "*.a"
+  - '*.la'
+  - '*.a'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 modules:
@@ -76,8 +76,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile.git
-        tag: v9.0.18
-        commit: e41a24dc18d838858c01bbd917651cb0ec9bbac1
+        tag: v9.0.19
+        commit: b3e2668989cc11de08d485add69231460e53a1df
         x-checker-data:
           type: git
           version-scheme: semantic
@@ -92,8 +92,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/haiwen/seafile-client.git
-        tag: v9.0.18
-        commit: eb750ba84d834082679ed4aeec2e1f0bd6d97a62
+        tag: v9.0.19
+        commit: 1a3c456742cb6026a558622e4be3dca59d96a93b
         x-checker-data:
           type: git
           version-scheme: semantic
