@@ -93,7 +93,7 @@ modules:
       - type: git
         url: https://github.com/haiwen/seafile-client.git
         tag: v9.0.19
-        commit: 1a3c456742cb6026a558622e4be3dca59d96a93b
+        commit: 2b32a92a328c688db609c4f33eb3a4ca75ffbcd0
         x-checker-data:
           type: git
           version-scheme: semantic
