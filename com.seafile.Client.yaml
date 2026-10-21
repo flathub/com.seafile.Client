@@ -49,7 +49,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/haiwen/libsearpc/archive/refs/tags/v3.3-latest.tar.gz
-        sha256: 07037abb4bfe2d4c05924ff680178e480ad943f641c98125f74ff162ab2d7fb1
+        sha256: a23f4c1c78264add8bcef77aecc657fe93b2a86412aaa9cec22a9bf6de9c4396
 
   - name: libwebsockets
     buildsystem: cmake-ninja
@@ -87,6 +87,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -D CMAKE_POLICY_VERSION_MINIMUM=3.5
+      - -D BUILD_SHIBBOLETH_SUPPORT=ON
     post-install:
       - install -Dm644 com.seafile.Client.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
     sources:
